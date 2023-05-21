@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Application/Debug
+/Application/.vs
+/Application/x64/Debug
+/Application/libs/assimp
+/Application/.vs/JGL_Projects/v16
+/x64/Debug
