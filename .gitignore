@@ -1,11 +1,12 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+﻿# Ignore Visual Studio files
+*.vcxproj
+*.sln
+.vs/
+*.user
 
-/.vs
-/Application/Debug
-/Application/.vs
-/Application/x64/Debug
-/Application/libs/assimp
-/Application/.vs/JGL_Projects/v16
-/x64/Debug
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore JetBrains IDE settings
+.idea/
