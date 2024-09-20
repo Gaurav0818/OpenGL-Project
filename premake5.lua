@@ -21,12 +21,14 @@ project "OpenGL-Project"
 
 	files
 	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/public/**.h",
+		"%{prj.name}/src/private/**.cpp",
+		"%{prj.name}/src/**.cpp",
 	}
 
 	includedirs
 	{
+		"%{prj.name}/src/public/",
 		"vendor/include",
 		"vendor/include/gl",      
         "vendor/include/glfw"     

@@ -1,8 +1,9 @@
 ﻿# Ignore Visual Studio files
-*.vcxproj
-*.sln
 .vs/
+*.sln
+*.vcxproj
 *.user
+*.filters
 
 # Ignore build output directories
 bin/
@@ -10,3 +11,4 @@ obj/
 
 # Ignore JetBrains IDE settings
 .idea/
+
