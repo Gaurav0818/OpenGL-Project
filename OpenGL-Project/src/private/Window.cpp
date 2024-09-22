@@ -1,9 +1,11 @@
 #include "Window.h"
 
+std::unique_ptr<Window> g_activeWindow = nullptr;
+
 Window::Window()
 {
     if (!glfwInit()) {
-        std::cerr << "Failed to initialize GLFW!" << std::endl;
+        Logger::Error("Failed to initialize GLFW!");
         glfwTerminate();
         return;
     }
@@ -22,14 +24,12 @@ Window::Window()
 
     if (!m_window)
     {
-        std::cerr << "GLFW window Creation Failed";
+        Logger::Error("GLFW window Creation Failed");
         glfwTerminate();
         return;
     }
 
-    // Get Buffer size information
-    int bufferWidth, bufferHeight;
-    glfwGetFramebufferSize(m_window, &bufferWidth, &bufferHeight);
+    glfwGetFramebufferSize(m_window, &m_bufferWidth, &m_bufferHeight);
 
     // Set Conetext for GLFW to use 
     glfwMakeContextCurrent(m_window);
@@ -39,14 +39,16 @@ Window::Window()
 
     if (glewInit() != GLEW_OK)
     {
-        std::cerr << "GLEW initialization failed!";
+        Logger::Error("GLEW initialization failed!");
         glfwDestroyWindow(m_window);
         glfwTerminate();
         return;
     }
 
+    glEnable(GL_DEPTH_TEST);
+
     // Setup viewport size
-    glViewport(0, 0, bufferWidth, bufferHeight);
+    glViewport(0, 0, m_bufferWidth, m_bufferHeight);
 }
 
 Window::~Window()

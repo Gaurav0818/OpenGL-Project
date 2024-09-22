@@ -13,6 +13,9 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+#include "Logger.h"
+#include "Window.h"
+
 #define WIDTH 800
 #define HEIGHT 600
 

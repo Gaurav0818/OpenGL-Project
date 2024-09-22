@@ -6,7 +6,7 @@ void Shader::compileShader()
 
     if (!m_shaderID)
     {
-        std::cerr << "Error Creating shader program!" << std::endl;
+        Logger::Error("Error Creating shader program!");
         return;
     }
 
@@ -21,7 +21,7 @@ void Shader::compileShader()
     {
         char eLog[1024] = { 0 };
         glGetProgramInfoLog(m_shaderID, sizeof(eLog), NULL, eLog);
-        std::cout << "Error linking program: " << eLog;
+        Logger::Error(std::string("Error linking program: ") + eLog);
         return;
     }
 
@@ -31,7 +31,7 @@ void Shader::compileShader()
     {
         char eLog[1024] = { 0 };
         glGetProgramInfoLog(m_shaderID, sizeof(eLog), NULL, eLog);
-        std::cout << "Error Validating program: " << eLog;
+        Logger::Error(std::string("Error Validating program: ") + eLog);
         return;
     }
 }
@@ -55,7 +55,7 @@ void Shader::_getShaderCode(std::string& shaderCode, std::string& location)
     file.open(location);
     if (!file.is_open())
     {
-        std::cout << "failed to open file " << location << std::endl;
+        Logger::Error(std::string("failed to open file ") + location);
     }
     while (std::getline(file, line))
     {
@@ -86,7 +86,7 @@ void Shader::_addShader(unsigned int theProgram, GLenum shaderType, std::string&
     {
         char eLog[1000] = { 0 };
         glGetProgramInfoLog(theShader, sizeof(eLog), NULL, eLog);
-        std::cout << "Error Compiling " << shaderType << " Shader :" << eLog;
+        Logger::Error(std::string("Error Compiling ") + std::to_string(shaderType) + " Shader :" + eLog);
         return;
     }
 

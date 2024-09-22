@@ -2,7 +2,7 @@
 
 int main(int argc, char** argv)
 {
-	std::unique_ptr<Application> app = std::make_unique<Application>();
+	Application app;
 
-	app->run();
+	app.run();
 }

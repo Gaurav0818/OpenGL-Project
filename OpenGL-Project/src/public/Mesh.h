@@ -11,16 +11,22 @@ public:
 	
 	void draw();
 
-	glm::vec3 pos;
-	glm::vec3 scale;
-	float angle;
-
 private:
-	unsigned int m_vao, m_vbo, m_uniformModel;
-
-	std::unique_ptr<Shader> m_shader;
-
 	void _initMesh();
 	void _initShader();
 	void _initTransform();
+
+public:
+	glm::vec3 pos;
+	glm::vec3 scale;
+	glm::vec3 rotationAxis;
+	float angle;
+
+private:
+	unsigned int m_vao, m_ibo, m_vbo;
+	unsigned int m_uniformModel, m_uniformProjection;
+
+	glm::mat4 m_projection;
+
+	std::unique_ptr<Shader> m_shader;
 };
